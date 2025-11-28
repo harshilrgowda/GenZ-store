@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenZ Store | Study Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="study">
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-area">
+            <img src="assets/logo.png" alt="GenZ Logo" onerror="this.style.display='none'"> 
+            <div class="logo">GENZ STORE</div>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="food.html" class="nav-item">Food</a>
+            <a href="books.html" class="nav-item">Books</a>
+            <a href="study.html" class="nav-item active">Study</a>
+            <a href="xerox.html" class="nav-item">Xerox</a>
+        </div>
+        <div class="nav-actions">
+            <button class="icon-btn" onclick="toggleCart()">
+                <i class="ri-shopping-bag-3-line"></i>
+                <span class="cart-badge" id="cart-count">0</span>
+            </button>
+            <button class="login-btn" id="nav-login-btn" onclick="openAuthModal()">Login</button>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="custom-shape-divider">
+            <svg class="wave-path-1" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" class="shape-fill"></path>
+            </svg>
+            <svg class="wave-path-2" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="hero-text">
+            <h1 class="hero-animate">STATIONERY &<br>TECH ESSENTIALS.</h1>
+            <p class="hero-animate">Scientific calculators, geometry kits, and premium notebooks.</p>
+            <div class="search-wrapper">
+                <input type="text" id="search-input" class="search-input" placeholder="Search for 'Casio' or 'Pens'..." onkeyup="filterProducts()">
+                <i class="ri-search-line search-icon"></i>
+            </div>
+        </div>
+        
+        <div class="hero-3d-wrapper">
+            <div class="tilt-card" onclick="openProductModal(401)">
+                <div class="floating-badge">MUST HAVE</div>
+                <img src="assets/calculator.jpg" alt="Calculator" onerror="this.src='https://placehold.co/400x500?text=Calculator'">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="filter-scroll">
+            <button class="filter-pill active" onclick="filterCategory('all', this)">All Items</button>
+            <button class="filter-pill" onclick="filterCategory('tech', this)">Calculators</button>
+            <button class="filter-pill" onclick="filterCategory('paper', this)">Notebooks</button>
+            <button class="filter-pill" onclick="filterCategory('writing', this)">Pens</button>
+            <button class="filter-pill" onclick="filterCategory('art', this)">Drafting</button>
+        </div>
+        <div id="product-grid" class="grid"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="javascript:void(0)" onclick="alert('Page coming soon!')">About Us</a>
+            <a href="javascript:void(0)" onclick="alert('Contact support at help@genz.com')">Contact</a>
+            <a href="javascript:void(0)" onclick="alert('Terms & Conditions applied.')">Terms</a>
+            <a href="javascript:void(0)" onclick="alert('Privacy Policy applied.')">Privacy</a>
+        </div>
+        <div class="footer-copy">&copy; 2025 GenZ Store. Built for Students.</div>
+    </footer>
+
+    <div id="product-modal" class="modal-overlay" onclick="if(event.target === this) closeModal('product-modal')">
+        <div class="modal-box">
+            <div class="modal-left"><img id="pm-img" src=""></div>
+            <div class="modal-right">
+                <button onclick="closeModal('product-modal')" style="align-self:flex-end; background:none; font-size:1.5rem;"><i class="ri-close-line"></i></button>
+                <div style="color:var(--text-secondary); font-size:0.85rem; font-weight:700; text-transform:uppercase; margin-bottom:5px;" id="pm-cat"></div>
+                <h1 id="pm-title" style="font-size:2rem; font-weight:900; line-height:1.1; margin-bottom:15px;">Product Title</h1>
+                <p id="pm-desc" style="color:var(--text-secondary); line-height:1.6;"></p>
+                <div class="meta-grid">
+                    <div><span class="meta-label" id="pm-l1">Label 1</span><span class="meta-value" id="pm-v1">--</span></div>
+                    <div><span class="meta-label" id="pm-l2">Label 2</span><span class="meta-value" id="pm-v2">--</span></div>
+                </div>
+                <div style="margin-bottom:30px;"><span class="price-large" id="pm-price"></span><span class="price-old" id="pm-mrp"></span></div>
+                <button class="btn-full" id="pm-add-btn">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="auth-modal" class="modal-overlay" onclick="if(event.target === this) closeModal('auth-modal')">
+        <div class="modal-box auth-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                <h2 id="auth-title" style="font-weight:800;">Student Login</h2>
+                <button onclick="closeModal('auth-modal')" style="background:none; font-size:1.2rem;"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="input-group"><label>Email Address</label><input type="email" id="auth-email" placeholder="student@university.edu"></div>
+            <div class="input-group"><label>Password</label><input type="password" id="auth-pass" placeholder="••••••••"></div>
+            <button class="btn-full" id="auth-action-btn" onclick="handleAuth()">LOGIN</button>
+            <div class="auth-toggle" id="auth-toggle-link">Don't have an account? <span onclick="toggleAuthMode()">Sign up</span></div>
+        </div>
+    </div>
+
+    <div id="checkout-modal" class="modal-overlay" onclick="if(event.target === this) closeModal('checkout-modal')">
+        <div class="modal-box auth-box" style="width: 600px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                <h2 style="font-weight:800;">Checkout</h2>
+                <button onclick="closeModal('checkout-modal')" style="background:none; font-size:1.2rem;"><i class="ri-close-line"></i></button>
+            </div>
+            <div style="margin-bottom:20px;">
+                <h3 style="font-size:1rem; margin-bottom:10px;">1. Delivery Address</h3>
+                <div class="input-group"><label>Full Address</label><textarea id="co-address" rows="2" placeholder="Room 304, Block A..."></textarea></div>
+            </div>
+            <div style="margin-bottom:20px;">
+                <h3 style="font-size:1rem; margin-bottom:10px;">2. Payment Method</h3>
+                <div class="payment-option selected" onclick="selectPayment(this, 'upi')"><input type="radio" name="pay" checked> <span>UPI (GPay / PhonePe)</span></div>
+                <div class="payment-option" onclick="selectPayment(this, 'cod')"><input type="radio" name="pay"> <span>Cash on Delivery</span></div>
+            </div>
+            <div style="border-top:1px solid #eee; padding-top:15px;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Subtotal</span><span id="co-subtotal">₹0</span></div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px;"><span>Delivery Fee</span><span id="co-delivery">₹40</span></div>
+                <div style="display:flex; justify-content:space-between; font-weight:800; font-size:1.2rem; margin-bottom:15px;"><span>Total</span><span id="co-final">₹0</span></div>
+                <button class="btn-full" id="place-order-btn" onclick="placeOrder()">PLACE ORDER</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="drawer-overlay" class="drawer-overlay" onclick="toggleCart()"></div>
+    <div id="cart-drawer" class="drawer">
+        <div style="padding:25px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+            <h2 style="font-weight:800;">Your Cart</h2>
+            <button onclick="toggleCart()" style="background:none; font-size:1.5rem;"><i class="ri-close-line"></i></button>
+        </div>
+        <div id="cart-items" style="flex:1; overflow-y:auto; padding:25px;"></div>
+        <div style="padding:30px; border-top:1px solid var(--border); background:var(--surface);">
+            <div style="display:flex; justify-content:space-between; font-size:1.2rem; font-weight:800; margin-bottom:20px;">
+                <span>Total</span><span id="cart-total">₹0</span>
+            </div>
+            <button class="btn-full" onclick="startCheckout()">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <div id="toast">Notification</div>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
