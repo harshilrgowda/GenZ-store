@@ -1,2 +1,2 @@
 # GenZ-store
-Gen Z Store is a clean, fast web project I built using pure HTML, CSS, and JavaScript. No frameworks. Just a simple, responsive store with linked pages, a working cart, and a modern Gen-Z look. Straightforward, minimal, and coded fully from scratch.
+GEN Z Store is a clean, fast, no-nonsense web app built with pure HTML, CSS, and JavaScript. It’s a compact online store designed for quick browsing, instant product access, and a smooth cart system without relying on heavy frameworks. Every page is hand-coded, responsive, and optimized for speed. The UI is modern, minimal, and built to feel like a straight-up Gen Z shopping hub—simple, direct, and functional.
