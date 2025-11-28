@@ -1,18 +1,11 @@
-// --- MASTER PRODUCT DATABASE ---
 const masterDB = [
     // BOOKS
-    { id: 101, name: "Engineering Math I", price: 450, mrp: 600, cat: "books", subcat: "firstyear", desc: "Comprehensive guide for First Year students.", mfd: "08/2024", exp: "N/A", img: "assets/eng maths.webp" },
-    { id: 202, name: "DBMS Guide", author: "N. Karumanchi", price: 550, mrp: 700, cat: "books", subcat: "cse", desc: "Database Management System.", mfd: "2023", img: "assets/dbms.jpg" },
+    { id: 101, name: "Engineering Math I", price: 450, mrp: 600, cat: "books", subcat: "firstyear", desc: "Guide for First Year.", mfd: "08/2024", exp: "N/A", img: "assets/eng maths.webp" },
+    { id: 202, name: "DBMS Guide", author: "N. Karumanchi", price: 550, mrp: 700, cat: "books", subcat: "cse", desc: "DBMS Made Easy.", mfd: "2023", img: "assets/dbms.jpg" },
     { id: 203, name: "Electronic Devices", author: "Boylestad", price: 720, mrp: 950, cat: "books", subcat: "ece", desc: "Circuit Theory.", mfd: "11th Ed", img: "assets/digital.jpg" },
     { id: 204, name: "GATE CSE 2026", author: "Made Easy", price: 890, mrp: 1200, cat: "books", subcat: "prep", desc: "Solved papers.", mfd: "2025", img: "assets/gate.jpg" },
     { id: 205, name: "Python Crash Course", author: "E. Matthes", price: 450, mrp: 600, cat: "books", subcat: "cse", desc: "Hands-on intro.", mfd: "3rd Ed", img: "assets/python.png" },
-    
-    // STUDY
-    { id: 102, name: "Drafting Kit Pro", price: 350, mrp: 500, cat: "study", subcat: "art", desc: "Complete geometry and drafting set.", mfd: "01/2025", exp: "N/A", img: "assets/draftingkit.jpg" },
-    { id: 401, name: "Casio Classwiz fx-991EX", price: 1200, mrp: 1400, cat: "study", subcat: "tech", desc: "Scientific calculator.", brand: "Casio", war: "3 Years", img: "assets/calculator.jpg" },
-    { id: 402, name: "Classmate Pulse", price: 210, mrp: 250, cat: "study", subcat: "paper", desc: "Spiral notebook.", brand: "Classmate", img: "assets/pulse.webp" },
-    { id: 403, name: "Pencil Black", price: 40, mrp: 50, cat: "study", subcat: "writing", desc: "0.7 mm lead.", brand: "Pentel", img: "assets/pencil.jpg" },
-    { id: 406, name: "Neon Highlighters", price: 120, mrp: 150, cat: "study", subcat: "writing", desc: "Pack of 5.", brand: "Faber Castell", img: "assets/neon.webp" },
+    { id: 206, name: "Eng Physics", author: "R.K. Gaur", price: 320, mrp: 450, cat: "books", subcat: "firstyear", desc: "Standard Physics.", mfd: "2022", img: "assets/physics.jpg" },
 
     // FOOD
     { id: 103, name: "Cold Brew Coffee", price: 120, mrp: 150, cat: "food", subcat: "drinks", desc: "Black coffee, no sugar.", mfd: "11/2025", exp: "12/2025", img: "assets/cofee.webp" },
@@ -22,10 +15,20 @@ const masterDB = [
     { id: 305, name: "Dark Chocolate 70%", price: 150, mrp: 200, cat: "food", subcat: "sweet", desc: "Rich chocolate.", mfd: "08/2025", exp: "08/2026", img: "assets/darkc.webp" },
     { id: 306, name: "Protein Bar", price: 100, mrp: 120, cat: "food", subcat: "sweet", desc: "20g Protein.", mfd: "10/2025", exp: "04/2026", img: "assets/protien.webp" },
 
+    // STUDY
+    { id: 102, name: "Drafting Kit Pro", price: 350, mrp: 500, cat: "study", subcat: "art", desc: "Geometry Set.", mfd: "01/2025", exp: "N/A", img: "assets/draftingkit.jpg" },
+    { id: 401, name: "Casio Classwiz fx-991EX", price: 1200, mrp: 1400, cat: "study", subcat: "tech", desc: "Scientific calculator.", brand: "Casio", war: "3 Years", img: "assets/calculator.jpg" },
+    { id: 402, name: "Classmate Pulse", price: 210, mrp: 250, cat: "study", subcat: "paper", desc: "Spiral notebook.", brand: "Classmate", img: "assets/pulse.webp" },
+    { id: 403, name: "Pencil Black", price: 40, mrp: 50, cat: "study", subcat: "writing", desc: "0.7 mm lead.", brand: "Pentel", img: "assets/pencil.jpg" },
+    { id: 404, name: "A4 Sheets", price: 100, mrp: 250, cat: "study", subcat: "art", desc: "100 sheets.", brand: "Omega", img: "assets/a4 sheet.webp" },
+    { id: 406, name: "Neon Highlighters", price: 120, mrp: 150, cat: "study", subcat: "writing", desc: "Pack of 5.", brand: "Faber Castell", img: "assets/neon.webp" },
+
     // XEROX
     { id: 501, name: "B&W Print (Single)", price: 2, cat: "xerox", subcat: "doc", desc: "Laser print.", paper: "75 GSM", time: "Instant", img: "assets/bw.png" },
     { id: 502, name: "Color Print (Premium)", price: 10, cat: "xerox", subcat: "doc", desc: "Color print.", paper: "80 GSM", time: "Instant", img: "assets/color.jpg" },
     { id: 503, name: "Spiral Binding", price: 40, cat: "xerox", subcat: "bind", desc: "Front sheet incl.", paper: "Plastic", time: "10 Mins", img: "assets/spiral.png" },
+    { id: 504, name: "Hard Binding", price: 150, cat: "xerox", subcat: "bind", desc: "Golden Emboss.", paper: "Hard Board", time: "1 Day", img: "assets/hardb.webp" },
+    { id: 505, name: "Glossy Photo", price: 25, cat: "xerox", subcat: "photo", desc: "4x6 inch.", paper: "Glossy", time: "15 Mins", img: "assets/glossy.webp" },
     { id: 506, name: "Lamination (A4)", price: 20, cat: "xerox", subcat: "doc", desc: "Protection.", paper: "Plastic", time: "5 Mins", img: "assets/lamin.jpg" }
 ];
 
